@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Empty Orchestra Radio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <header class="masthead">
+        <div class="brand-mark" aria-hidden="true">EO</div>
+        <div>
+          <h1>Empty Orchestra</h1>
+          <p>Radio graphic generator</p>
+        </div>
+        <button id="settings-toggle" class="icon-button" type="button" title="Inställningar" aria-label="Inställningar">
+          <span aria-hidden="true">&#9881;</span>
+        </button>
+      </header>
+
+      <section class="generator" aria-labelledby="generator-heading">
+        <div class="section-heading">
+          <span class="section-number">01</span>
+          <h2 id="generator-heading">Generera radio</h2>
+        </div>
+
+        <form id="generate-form">
+          <label for="issue">Vecka / issue</label>
+          <div class="issue-row">
+            <input id="issue" name="issue" type="text" inputmode="numeric" placeholder="163" autocomplete="off" required />
+            <button id="generate-button" class="primary-button" type="submit">
+              <span class="button-label">Generera PNG</span>
+              <span class="spinner" aria-hidden="true"></span>
+            </button>
+          </div>
+        </form>
+
+        <div id="status" class="status" role="status" aria-live="polite" hidden>
+          <div>
+            <strong id="status-title"></strong>
+            <p id="status-message"></p>
+          </div>
+          <button id="show-file" class="secondary-button" type="button" hidden>Visa fil</button>
+        </div>
+      </section>
+
+      <section id="settings" class="settings" aria-labelledby="settings-heading" hidden>
+        <div class="section-heading">
+          <span class="section-number">02</span>
+          <h2 id="settings-heading">Inställningar</h2>
+        </div>
+
+        <div class="settings-grid">
+          <label for="client-id">Spotify Client ID</label>
+          <input id="client-id" type="text" autocomplete="off" spellcheck="false" />
+
+          <label for="client-secret">Spotify Client Secret</label>
+          <input id="client-secret" type="password" autocomplete="off" spellcheck="false" />
+
+          <label for="playlist-id">Spotify playlist</label>
+          <input id="playlist-id" type="text" placeholder="Länk eller playlist-ID" autocomplete="off" spellcheck="false" />
+
+          <label for="market">Marknad</label>
+          <input id="market" type="text" maxlength="2" value="SE" autocomplete="off" />
+
+          <label for="template-path">Bakgrund</label>
+          <div class="path-row">
+            <input id="template-path" type="text" readonly />
+            <button id="choose-template" class="secondary-button" type="button">Välj</button>
+          </div>
+
+          <label for="output-directory">Output-mapp</label>
+          <div class="path-row">
+            <input id="output-directory" type="text" readonly />
+            <button id="choose-output" class="secondary-button" type="button">Välj</button>
+          </div>
+        </div>
+
+        <div class="settings-actions">
+          <span id="save-confirmation" aria-live="polite"></span>
+          <button id="save-settings" class="secondary-button" type="button">Spara inställningar</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>

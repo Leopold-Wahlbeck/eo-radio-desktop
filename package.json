@@ -1,0 +1,49 @@
+{
+  "name": "eo-radio-desktop",
+  "version": "1.0.0",
+  "description": "Lokal Windows-app för Empty Orchestra Radio-grafik.",
+  "author": "Empty Orchestra",
+  "main": "dist/main/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc && node scripts/copy-renderer.mjs",
+    "dev": "npm run build && electron .",
+    "test": "vitest run",
+    "dist:win": "npm run build && electron-builder --win portable"
+  },
+  "build": {
+    "appId": "se.emptyorchestra.radio",
+    "productName": "Empty Orchestra Radio",
+    "asar": true,
+    "files": [
+      "dist/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "assets",
+        "to": "assets"
+      }
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "win": {
+      "target": ["portable"],
+      "artifactName": "Empty-Orchestra-Radio-${version}-portable-${arch}.${ext}"
+    }
+  },
+  "dependencies": {
+    "sharp": "^0.34.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.32",
+    "electron": "^37.2.0",
+    "electron-builder": "^26.0.12",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
