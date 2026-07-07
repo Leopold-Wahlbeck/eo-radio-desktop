@@ -40,4 +40,4 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           RELEASE_TAG: ${{ inputs.tag }}
-        run: gh release upload "$RELEASE_TAG" release/Empty-Orchestra-Radio-*-mac-* --clobber
+        run: gh release upload "$RELEASE_TAG" release/Empty-Orchestra-Radio-*-mac-*.dmg release/Empty-Orchestra-Radio-*-mac-*.zip --clobber
