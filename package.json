@@ -1,7 +1,7 @@
 {
   "name": "eo-radio-desktop",
   "version": "1.0.0",
-  "description": "Lokal Windows-app för Empty Orchestra Radio-grafik.",
+  "description": "Lokal Windows- och macOS-app för Empty Orchestra Radio-grafik.",
   "author": "Empty Orchestra",
   "main": "dist/main/index.js",
   "type": "module",
@@ -9,7 +9,8 @@
     "build": "tsc && node scripts/copy-renderer.mjs",
     "dev": "npm run build && electron .",
     "test": "vitest run",
-    "dist:win": "npm run build && electron-builder --win portable"
+    "dist:win": "npm run build && electron-builder --win portable",
+    "dist:mac": "npm run build && electron-builder --mac dmg zip --x64 --arm64"
   },
   "build": {
     "appId": "se.emptyorchestra.radio",
@@ -31,6 +32,11 @@
     "win": {
       "target": ["portable"],
       "artifactName": "Empty-Orchestra-Radio-${version}-portable-${arch}.${ext}"
+    },
+    "mac": {
+      "category": "public.app-category.graphics-design",
+      "target": ["dmg", "zip"],
+      "artifactName": "Empty-Orchestra-Radio-${version}-mac-${arch}.${ext}"
     }
   },
   "dependencies": {

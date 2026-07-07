@@ -1,6 +1,6 @@
 # Empty Orchestra Radio Desktop
 
-En lokal Windows-app som hämtar låtar från en Spotify-playlist och genererar färdig Empty Orchestra Radio-grafik som PNG. Ingen Discord-bot eller server behöver vara igång.
+En lokal Windows- och macOS-app som hämtar låtar från en Spotify-playlist och genererar färdig Empty Orchestra Radio-grafik som PNG. Ingen Discord-bot eller server behöver vara igång.
 
 ## Snabbstart
 
@@ -11,6 +11,15 @@ En lokal Windows-app som hämtar låtar från en Spotify-playlist och genererar 
 5. Skriv veckans nummer och klicka **Generera PNG**.
 
 Den färdiga bilden sparas som standard i `Bilder\Empty Orchestra Radio`. Appen kommer med Empty Orchestras bakgrundsbild, men en annan PNG kan väljas i inställningarna.
+
+## macOS
+
+Releasen innehåller separata versioner för:
+
+- `mac-arm64`: Apple Silicon, alltså M1, M2, M3, M4 och senare
+- `mac-x64`: Intel-baserade Mac-datorer
+
+Ladda helst ner `.dmg`, öppna den och dra appen till Program. Eftersom appen inte är Apple-notariserad kan macOS stoppa första starten. Kontrollklicka då på appen, välj **Öppna** och bekräfta **Öppna** en gång till.
 
 ## Skapa Spotify-nycklar
 
@@ -54,6 +63,12 @@ npm.cmd run dist:win
 ```
 
 Filerna hamnar i `release/`.
+
+macOS-filer byggs på en Mac eller genom GitHub Actions:
+
+```bash
+npm run dist:mac
+```
 
 ## Konfiguration
 
